@@ -40,6 +40,34 @@ const ProductDetail = () => {
     }
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    // Regex expression to remove all characters which are NOT alphanumeric
+    //let number = mobileNumber.replace(/[^\w\s]/gi, "").replace(/ /g, "");
+
+    // Appending the phone number to the URL
+    let url = `https://web.whatsapp.com/send?phone=${"+905526522589"}`;
+
+    // Appending the message to the URL by encoding it
+    url += `&text=${encodeURI("message")}&app_absent=0`;
+    window.open(url);
+  };
+
+  const onSubmitTelegram = (e) => {
+    e.preventDefault();
+
+    // Regex expression to remove all characters which are NOT alphanumeric
+    //let number = mobileNumber.replace(/[^\w\s]/gi, "").replace(/ /g, "");
+
+    // Appending the phone number to the URL
+    let url = `https://web.telegram.org/a/#-/@bahaist`;
+
+    // Appending the message to the URL by encoding it
+    // url += `&text=${encodeURI("message")}&app_absent=0`;
+    window.open(url);
+  };
+
   return (
     <>
       <div className="container my-5 py-3">
@@ -77,12 +105,64 @@ const ProductDetail = () => {
             <p className="lead">{product.sized9}</p>
             <p className="lead">{product.sized10}</p>
 
-            <button
-              onClick={() => handleCart(product)}
-              className="btn btn-outline-primary my-5"
-            >
-              {cartBtn}
-            </button>
+            <form>
+              <div class="mb-3">
+                <label for="exampleForm" class="form-label">
+                  {t("name_surname")}
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleForm"
+                  placeholder="Феррух Мансуров"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">
+                  {t("phone_number")}
+                </label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="+7 777 777 7777"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">
+                  {t("message")}
+                </label>
+                <textarea
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="5"
+                ></textarea>
+              </div>
+
+              <div>
+                <button type="submit" class="btn btn-outline-primary">
+                  {t("send_message")}
+                </button>
+
+                <img
+                  onClick={onSubmit}
+                  style={{ marginLeft: 10, cursor: "pointer" }}
+                  src="/assets/images/whatsapp.png"
+                  alt="Contact Us"
+                  height="35px"
+                  width="35px"
+                />
+
+                <img
+                  onClick={onSubmitTelegram}
+                  style={{ marginLeft: 10, cursor: "pointer" }}
+                  src="/assets/images/telegram.png"
+                  alt="Contact Us"
+                  height="35px"
+                  width="35px"
+                />
+              </div>
+            </form>
           </div>
         </div>
       </div>

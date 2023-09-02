@@ -1,13 +1,40 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Button, Header, Image, Modal } from "semantic-ui-react";
+import { Button, Header, Image, Modal, Icon } from "semantic-ui-react";
 import DATA from "../Data/ruData";
 
 const Product = () => {
   const { t } = useTranslation();
   const [openModal, setOpenModal] = useState(false);
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+
+    // Regex expression to remove all characters which are NOT alphanumeric
+    //let number = mobileNumber.replace(/[^\w\s]/gi, "").replace(/ /g, "");
+
+    // Appending the phone number to the URL
+    let url = `https://web.whatsapp.com/send?phone=${"+905526522589"}`;
+
+    // Appending the message to the URL by encoding it
+    url += `&text=${encodeURI("message")}&app_absent=0`;
+    window.open(url);
+  };
+
+  const onSubmitTelegram = (e) => {
+    e.preventDefault();
+
+    // Regex expression to remove all characters which are NOT alphanumeric
+    //let number = mobileNumber.replace(/[^\w\s]/gi, "").replace(/ /g, "");
+
+    // Appending the phone number to the URL
+    let url = `https://web.telegram.org/a/#-/@bahaist`;
+
+    // Appending the message to the URL by encoding it
+    // url += `&text=${encodeURI("message")}&app_absent=0`;
+    window.open(url);
+  };
   const cardItem = (item) => {
     return (
       <>
@@ -72,8 +99,8 @@ const Product = () => {
                     </button>
 
                     <img
-                      onClick={() => console.log("ccc")}
-                      style={{ marginLeft: 10 }}
+                      onClick={onSubmit}
+                      style={{ marginLeft: 10, cursor: "pointer" }}
                       src="/assets/images/whatsapp.png"
                       alt="Contact Us"
                       height="35px"
@@ -81,8 +108,8 @@ const Product = () => {
                     />
 
                     <img
-                      onClick={() => console.log("ddd")}
-                      style={{ marginLeft: 10 }}
+                      onClick={onSubmitTelegram}
+                      style={{ marginLeft: 10, cursor: "pointer" }}
                       src="/assets/images/telegram.png"
                       alt="Contact Us"
                       height="35px"
