@@ -1,6 +1,9 @@
 import React from "react";
 import { useParams } from "react-router";
 import { useState } from "react";
+import AliceCarousel from "react-alice-carousel";
+import { Carousel } from "react-responsive-carousel";
+
 import DATARU from "../Data/ruData";
 import DATAKZ from "../Data/kzData";
 import { useDispatch } from "react-redux";
@@ -25,20 +28,7 @@ const ProductDetail = () => {
   }
 
   const product = proDetail[0];
-  console.log(product);
-
-  // We need to store useDispatch in a variable
-  const dispatch = useDispatch();
-
-  const handleCart = (product) => {
-    if (cartBtn === "Add to Cart") {
-      dispatch(addItem(product));
-      setCartBtn("Remove from Cart");
-    } else {
-      dispatch(delItem(product));
-      setCartBtn("Add to Cart");
-    }
-  };
+  console.log(product.id, "product");
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -68,14 +58,141 @@ const ProductDetail = () => {
     window.open(url);
   };
 
+  const handleDragStart = (e) => e.preventDefault();
+
+  const items = [
+    <img
+      style={{ height: "500px", width: "500px" }}
+      src="/assets/detailgreen/arka.jpeg"
+      onDragStart={handleDragStart}
+      role="presentation"
+    />,
+    <img
+      style={{ height: "500px", width: "500px" }}
+      src="/assets/detailgreen/arka2.jpeg"
+      onDragStart={handleDragStart}
+      role="presentation"
+    />,
+    <img
+      style={{ height: "500px", width: "500px" }}
+      src="/assets/detailgreen/arka3.jpeg"
+      onDragStart={handleDragStart}
+      role="presentation"
+    />,
+    <img
+      style={{ height: "500px", width: "500px" }}
+      src="/assets/detailgreen/arka4.jpeg"
+      onDragStart={handleDragStart}
+      role="presentation"
+    />,
+    <img
+      style={{ height: "500px", width: "500px" }}
+      src="/assets/detailgreen/arka5.jpeg"
+      onDragStart={handleDragStart}
+      role="presentation"
+    />,
+    <img
+      style={{ height: "500px", width: "500px" }}
+      src="/assets/detailgreen/arka6.jpeg"
+      onDragStart={handleDragStart}
+      role="presentation"
+    />,
+    <img
+      style={{ height: "500px", width: "500px" }}
+      src="/assets/detailgreen/arka7.jpeg"
+      onDragStart={handleDragStart}
+      role="presentation"
+    />,
+    <img
+      style={{ height: "500px", width: "500px" }}
+      src="/assets/detailgreen/arka8.jpeg"
+      onDragStart={handleDragStart}
+      role="presentation"
+    />,
+    <img
+      style={{ height: "500px", width: "500px" }}
+      src="/assets/detailgreen/arka9.jpeg"
+      onDragStart={handleDragStart}
+      role="presentation"
+    />,
+    <img
+      style={{ height: "500px", width: "500px" }}
+      src="/assets/detailgreen/arka10.jpeg"
+      onDragStart={handleDragStart}
+      role="presentation"
+    />,
+    <img
+      style={{ height: "500px", width: "500px" }}
+      src="/assets/detailgreen/arka11.jpeg"
+      onDragStart={handleDragStart}
+      role="presentation"
+    />,
+  ];
+
   return (
     <>
       <div className="container my-5 py-3">
         <div className="row">
           <div className="col-md-6 d-flex justify-content-center mx-auto product">
-            <img src={product.img} alt={product.title} height="400px" />
+            {product.id == 1 ? (
+              <div style={{ height: "500px", width: "500px" }}>
+                <AliceCarousel
+                  autoPlay
+                  infinite
+                  autoPlayInterval={1000}
+                  items={items}
+                />
+              </div>
+            ) : (
+              <Carousel
+                showArrows={true}
+                showStatus={true}
+                showIndicators={true}
+                infiniteLoop={true}
+                showThumbs={false}
+                useKeyboardArrows={true}
+                autoPlay={true}
+              >
+                <div>
+                  <img
+                    style={{ height: "500px", width: "500px" }}
+                    src="/assets/images/home/11.jpeg"
+                  />
+                </div>
+                <div>
+                  <img
+                    style={{ height: "500px", width: "500px" }}
+                    src="/assets/images/home/22.jpeg"
+                  />
+                </div>
+                <div>
+                  <img
+                    style={{ height: "500px", width: "500px" }}
+                    src="/assets/images/home/33.jpeg"
+                  />
+                </div>
+                <div>
+                  <img
+                    style={{ height: "500px", width: "500px" }}
+                    src="/assets/images/home/44.jpeg"
+                  />
+                </div>
+                <div>
+                  <img
+                    style={{ height: "500px", width: "500px" }}
+                    src="/assets/images/home/55.jpeg"
+                  />
+                </div>
+                <div>
+                  <img src={product.img} alt={product.title} height="400px" />
+                </div>
+              </Carousel>
+            )}
           </div>
-          <div className="col-md-6 d-flex flex-column justify-content-center">
+          <div
+            style={{ zIndex: 1 }}
+            className="col-md-6 d-flex flex-column justify-content-center"
+          >
             <h1 className="display-5 fw-bold">{product.title}</h1>
             <hr />
             <h2 className="my-4">{product.price} тг</h2>

@@ -7,6 +7,7 @@ import "font-awesome/css/font-awesome.min.css";
 import "./index.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "semantic-ui-css/semantic.min.css";
+import "react-alice-carousel/lib/alice-carousel.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import store from "./redux/store";
