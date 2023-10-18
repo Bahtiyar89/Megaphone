@@ -17,37 +17,43 @@ const Home = () => {
         <div>
           <img
             style={{ height: "500px", width: "500px" }}
-            src="/assets/images/home/11.jpeg"
+            src="/assets/images/home/mainpage/1.jpeg"
           />
         </div>
         <div>
           <img
             style={{ height: "500px", width: "500px" }}
-            src="/assets/images/home/22.jpeg"
+            src="/assets/images/home/mainpage/2.jpeg"
           />
         </div>
         <div>
           <img
             style={{ height: "500px", width: "500px" }}
-            src="/assets/images/home/33.jpeg"
+            src="/assets/images/home/mainpage/3.jpeg"
           />
         </div>
         <div>
           <img
             style={{ height: "500px", width: "500px" }}
-            src="/assets/images/home/44.jpeg"
+            src="/assets/images/home/mainpage/4.jpeg"
           />
         </div>
         <div>
           <img
             style={{ height: "500px", width: "500px" }}
-            src="/assets/images/home/55.jpeg"
+            src="/assets/images/home/mainpage/5.jpeg"
           />
         </div>
         <div>
           <img
             style={{ height: "500px", width: "500px" }}
-            src="/assets/images/home/66.jpeg"
+            src="/assets/images/home/mainpage/6.jpeg"
+          />
+        </div>
+        <div>
+          <img
+            style={{ height: "500px", width: "500px" }}
+            src="/assets/images/home/mainpage/7.jpeg"
           />
         </div>
       </Carousel>

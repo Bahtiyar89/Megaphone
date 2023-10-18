@@ -151,7 +151,7 @@ const ProductDetail = () => {
                 infiniteLoop={true}
                 showThumbs={false}
                 useKeyboardArrows={true}
-                autoPlay={true}
+                autoPlay={false}
               >
                 <div>
                   <img
@@ -184,7 +184,10 @@ const ProductDetail = () => {
                   />
                 </div>
                 <div>
-                  <img src={product.img} alt={product.title} height="400px" />
+                  <img
+                    style={{ height: "500px", width: "500px" }}
+                    src="/assets/images/home/red/1.jpeg"
+                  />
                 </div>
               </Carousel>
             )}
